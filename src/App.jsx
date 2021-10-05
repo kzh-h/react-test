@@ -13,6 +13,7 @@ import SignIn from "./pages/SignIn";
 //function App() {
 export class App extends React.Component {
   render() {
+    console.log(`app`);
     return (
       <Router>
         <Switch>

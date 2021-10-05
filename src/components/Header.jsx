@@ -28,16 +28,14 @@ class Header extends React.Component {
           <div className="container">
             <div className="navbar-menu">
               <div className="navbar-end">
-                <a
-                  href="/Home"
-                  className="navbar-item"
-                  onClick={this.handleHome}
-                >
-                  Home {this.state.name}
+                <scripts>{console.log("a tag")}</scripts>
+                <a href="#" className="navbar-item" onClick={this.handleHome}>
+                  Home
                 </a>
                 <a
-                  href="/SignIn"
+                  href="#"
                   className="navbar-item"
+                  onClick={this.handleSignIn}
                   style={{ display: this.state.isSignedIn ? "none" : "" }}
                 >
                   Sign In
@@ -51,8 +49,19 @@ class Header extends React.Component {
   }
 
   handleHome = () => {
+    console.log(`handleHome`);
     this.props.history.push({
       pathname: "/Home",
+      state: {
+        isSignedIn: this.props.state.isSignedIn,
+        name: this.props.state.name
+      }
+    });
+  };
+  handleSignIn = () => {
+    console.log(`handleSignIn`);
+    this.props.history.push({
+      pathname: "/SignIn",
       state: {
         isSignedIn: this.props.state.isSignedIn,
         name: this.props.state.name
